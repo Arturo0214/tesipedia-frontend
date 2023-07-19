@@ -1,0 +1,23 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.dashboard-content {
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  width: 100%;
+}
+.columns {
+  display: flex;
+  margin-top: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.column{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

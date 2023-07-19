@@ -1,2 +1,27 @@
-
+.navbar-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-bottom: 1px solid black;
+}
+.image{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.columns{
+  justify-content: center;
+}
+.columns p{
+  text-align: justify;
+}
+.columns img{
+  border-radius: 20px;
+}
+.logo{
+  width: 60px;
+  height: 60px;
+}
   
