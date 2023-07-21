@@ -9,7 +9,7 @@ const Dashboard = () => {
       <Navbar />
     </header>
     <main>
-      <div className="dashboard-container">
+      <div className="container">
         <div className="dashboard-content">
           <div className="columns is-mobile">
             <div className="column">

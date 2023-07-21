@@ -1,9 +1,10 @@
-.navbar-wrapper {
+.navbar-wrapper{
   width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  border-bottom: 0.5px solid rgb(181, 187, 187)
+  height: 100px;
+  border-bottom: 1px solid rgb(181, 187, 187);
 }
 .image{
   display: flex;
@@ -24,7 +25,6 @@
   margin-bottom: 21px;
   width: 120px;
   height: 60px;
-  border: 2px solid black;
   margin-top: 10px;
 }
 

@@ -14,7 +14,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className="navbar-wrapper is-fixed-top container">
+    <div className="navbar-wrapper is-fixed-top is-fullhd">
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <button
