@@ -1,11 +1,17 @@
 import './login.css'
 import React from 'react'
+import Navbar from '../../components/Navbar/Navbar'
 
 const Login = () => {
   return (
-    <div>
-      Login
+    <>
+    <header>
+      <Navbar/>
+    </header>
+    <div className='title'>
+      <h1>Login</h1>
     </div>
+    </>
   )
 }
 

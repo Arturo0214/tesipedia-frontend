@@ -14,8 +14,8 @@ const Navbar = () => {
   }
 
   return (
-    <div className="navbar-wrapper is-fixed-top is-fullhd">
-      <nav className="navbar" role="navigation" aria-label="main navigation">
+    <nav className="navbar-wrapper is-fixed-top is-fluid">
+      <div className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <button
             className={`navbar-burger ${isActive ? 'is-active' : ''}`}
@@ -38,12 +38,21 @@ const Navbar = () => {
             <a className="navbar-item">About Me</a>
             <a className="navbar-item">Documentation</a>
           </div>
-          <div className="navbar-end">
-  
-          </div>
-          </div>
-      </nav>
-    </div>
+        </div>
+      </div>
+      <div className="navbar-end is-right">
+        <Link to="/login" className='navbar-item'>
+          <strong>
+            Inicia Sesión
+          </strong>
+        </Link>
+        <Link to="/register" className='navbar-item'>
+          <strong>
+            Regístrate
+          </strong>
+        </Link>
+      </div>
+    </nav>
   );
 };
 

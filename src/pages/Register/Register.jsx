@@ -1,11 +1,19 @@
 import './register.css'
 import React from 'react'
+import Navbar from '../../components/Navbar/Navbar'
 
 const Register = () => {
+
+
   return (
-    <div>
-     <h3>Register</h3>
+    <>
+    <header>
+      <Navbar/>
+    </header>
+    <div className='title'>
+      <h1>Register</h1>
     </div>
+    </>
   )
 }
 
