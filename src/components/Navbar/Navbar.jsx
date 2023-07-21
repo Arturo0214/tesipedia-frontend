@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import 'bulma/css/bulma.min.css'
-import logo from '../../assets/graduacion.png'
+import logo from '../../assets/logo.jpeg'
 import './navbar.css'
 
 const Navbar = () => {
@@ -14,7 +14,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className="navbar-wrapper">
+    <div className="navbar-wrapper is-fixed-top container">
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <button
@@ -28,7 +28,6 @@ const Navbar = () => {
             <span aria-hidden="true" />
             <span aria-hidden="true" />
           </button>
-
         </div>
 
         <div className={`navbar-menu ${isActive ? 'is-active' : ''} is-left`}>
@@ -39,7 +38,10 @@ const Navbar = () => {
             <a className="navbar-item">About Me</a>
             <a className="navbar-item">Documentation</a>
           </div>
-        </div>
+          <div className="navbar-end">
+  
+          </div>
+          </div>
       </nav>
     </div>
   );
