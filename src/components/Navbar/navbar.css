@@ -1,2 +1,40 @@
+.navbar-wrapper{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 95%;
+  margin-left: 35px;
+  height: 100px;
+  border-bottom: 1px solid rgb(181, 187, 187);
+}
+.navbar-end{
+  display: flex;
+  justify-content: center;
+  width: 200px;
+  align-items: center;
+  height: 100px;
+  flex-direction: row;
+}
+.image{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.columns{
+  justify-content: center;
+}
+.columns p{
+  text-align: justify;
+}
+.columns img{
+  border-radius: 20px;
+}
+.logo{
+  margin-bottom: 21px;
+  width: 120px;
+  height: 60px;
+  margin-top: 10px;
+}
 
   

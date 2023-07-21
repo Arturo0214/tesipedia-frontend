@@ -11,7 +11,7 @@ function App() {
 
   return (
     <>
-      <div className="container">
+      <div className="container is-max-widescreen">
         <Routes>
           <Route path='/' element={<Dashboard/>}/>
           <Route path='/login' element={<Login/>}/>
