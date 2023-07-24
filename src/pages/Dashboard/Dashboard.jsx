@@ -9,7 +9,6 @@ const Dashboard = () => {
       <Navbar />
     </header>
     <main>
-      <div className="container">
         <div className="dashboard-content">
           <div className="columns is-mobile">
             <div className="column">
@@ -26,7 +25,6 @@ const Dashboard = () => {
             </div>
             </div>
         </div>
-      </div>
     </main>
     </>
   )
