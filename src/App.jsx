@@ -11,14 +11,12 @@ function App() {
 
   return (
     <>
-      <div className="container is-max-widescreen">
         <Routes>
           <Route path='/' element={<Dashboard/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/register' element={<Register/>}/>
           <Route path='*' element={<h3>Page not found 404</h3>}/> 
         </Routes>
-      </div>
     <ToastContainer/>
     </>
   )

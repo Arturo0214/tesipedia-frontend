@@ -1,0 +1,10 @@
+.foot{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 60px;
+  border: 2px solid black;
+}
+.content{
+  display: flex;
+}

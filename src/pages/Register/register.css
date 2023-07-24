@@ -1,4 +1,37 @@
-.main{
+.formulario{
+  display: flex;
+  margin-top: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 550px;
+  height: 500px;
+  border: 1px solid rgb(181, 187, 187);
+  border-radius: 20px;
+}
+.form-group{
+  display: flex;
+  flex-direction: column;
+  width: 420px;
+  height: 95px;
+}
+.input-image img{
+  display: flex;
+  height: 35px;
+  width: 35px;
+  margin-right: 15px;
+}
+.input-order{
+  display: flex;
+  flex-direction: row;
+}
+.submit-btn{
   display: flex;
   align-items: center;
   justify-content: center;

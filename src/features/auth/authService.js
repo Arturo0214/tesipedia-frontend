@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'https://aggressive-pear-shoulder-pads.cyclic.app/api'
+const API_URL = 'https://spotless-sombrero-hen.cyclic.app/'
 
 let user = null
 //Registrar un usuario
