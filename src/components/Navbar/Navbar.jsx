@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import logo from '../../assets/logo.png'
+import menu from '../../assets/menu.png'
 import './navbar.css'
 
 const Navbar = () => {
@@ -41,8 +42,8 @@ const Navbar = () => {
         type="button"
         aria-label="Toggle navigation"
         onClick={toggleNavbar}
-      >
-        <span className="navbar-toggler-icon" />
+        >
+        <img className="menu-icon" src={menu} alt="Menu" />
       </button>
         {/* Collapsible Navbar Content */}
         <div className={`collapse navbar-collapse ${isActive ? 'show' : ''}`} id="navbarColor03">

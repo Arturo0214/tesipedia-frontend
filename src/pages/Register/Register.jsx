@@ -5,7 +5,6 @@ import { toast } from 'react-toastify'
 import { register, reset } from '../../features/auth/authSlice'
 import './register.css'
 import Navbar from '../../components/Navbar/Navbar'
-import Footer from "../../components/Footer/Footer"
 import mail from '../../assets/email.png'
 import usuario from '../../assets/usuario.png'
 import passw1 from '../../assets/bloqueado.png'
@@ -24,7 +23,7 @@ const Register = () => {
   const dispatch = useDispatch()
 
   const { user, isLoading, error, isSuccess, message } = useSelector((state) => state.auth)
-
+  
   useEffect(() => {
     if (error) {
       toast.error(message)
@@ -59,13 +58,12 @@ const Register = () => {
     <header>
       <Navbar/>
     </header>
-
-    <section className="formulario is-mobile">
-      <div className="form">
-        <h1 className="title">Regístrate</h1>
-        <form onSubmit={onSubmit} className='register-group'>
+    <section className="d-flex justify-content-center">
+      <form className="form col-md-6" onSubmit={onSubmit}>
+        <fieldset>
+          <h2 className="title d-flex justify-content-center">Regístrate</h2>
           <div className="form-group">
-            <label htmlFor="name" className="field">
+            <label htmlFor="name" className="form-label mt-4">
               <strong>Nombre:</strong>
             </label>
             <div className="input-order">
@@ -84,7 +82,7 @@ const Register = () => {
             </div>
           </div>
           <div className="form-group">
-            <label htmlFor="name" className="field">
+            <label htmlFor="email" className="form-label mt-4">
               <strong>Correo:</strong>
             </label>
             <div className="input-order">
@@ -103,12 +101,12 @@ const Register = () => {
             </div>
           </div>
           <div className="form-group">
-            <label htmlFor="name" className="field">
+            <label htmlFor="password" className="form-label mt-4">
               <strong>Contraseña:</strong>
             </label>
             <div className="input-order">
             <span className="input-image">
-              <img src={passw1} alt="Contraseña" />
+              <img src={passw1} alt="Password" />
             </span>
             <input
               type="password"
@@ -122,12 +120,12 @@ const Register = () => {
             </div>
           </div>
           <div className="form-group">
-            <label htmlFor="name" className="field">
-              <strong>Confirma tu contraseña:</strong>
+            <label htmlFor="password-2" className="form-label mt-4">
+              <strong>Connfirmar contraseña:</strong>
             </label>
             <div className="input-order">
             <span className="input-image">
-              <img src={passw2} alt="Contraseña-2" />
+              <img src={passw2} alt="Password" />
             </span>
             <input
               type="password"
@@ -140,19 +138,18 @@ const Register = () => {
               />
             </div>
           </div>
+          </fieldset>
           <div className="field">
             <div className="submit-btn">
-              <button className="button is-primary" type="submit">
+              <button className="btn btn-primary" type="submit">
                 <strong>
                   Enviar
                 </strong>
               </button>
             </div>
           </div>
-        </form>
-      </div>
+      </form>
     </section>
- 
     </>
   )
 }
