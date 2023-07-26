@@ -1,50 +1,38 @@
-.logo{
-  display: flex;
+.logo {
   width: 120px;
   height: 70px;
   padding-bottom: 20px;
 }
-.navbar-brand{
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+
+.navbar-brand {
   margin-left: 15px;
 }
+
 /* Alinear la burger del lado izquierdo */
 .navbar-toggler {
   order: -1;
   border: 0.5px solid rgb(181, 187, 187);
   border-radius: 10px;
 }
+
 /* Eliminar el cambio de borde en el estado :focus */
 .navbar-toggler:focus {
   outline: none;
-  border: 0.5px solid rgb(181, 187, 187);
+  border: none; /* Remove the border on click */
 }
-/* Agregar fondo transparente al contenido desplegado de la burger */
-.navbar-burger .navbar-collapse {
+
+
+/* Show the collapsed Navbar content when isActive is true */
+.show .navbar-collapse {
+  display: block
+}
+
+.navbar-collapse {
   background-color: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
+  padding: 10px;
 }
-.navbar-brand-2{
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  margin-left: 15px;
-}
-.navbar-header-2{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  border: 2px solid black;
-  width: 100%;
-}
-.container-fluid{
-  display: flex;
-  flex-direction: row;
-}
-.menu-icon{
+
+.menu-icon {
   width: 25px;
   height: 30px;
 }
