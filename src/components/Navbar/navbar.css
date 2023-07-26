@@ -13,8 +13,14 @@
 /* Alinear la burger del lado izquierdo */
 .navbar-toggler {
   order: -1;
+  border: 0.5px solid rgb(181, 187, 187);
+  border-radius: 10px;
 }
-
+/* Eliminar el cambio de borde en el estado :focus */
+.navbar-toggler:focus {
+  outline: none;
+  border: 0.5px solid rgb(181, 187, 187);
+}
 /* Agregar fondo transparente al contenido desplegado de la burger */
 .navbar-burger .navbar-collapse {
   background-color: rgba(255, 255, 255, 0.8);
@@ -37,4 +43,8 @@
 .container-fluid{
   display: flex;
   flex-direction: row;
+}
+.menu-icon{
+  width: 25px;
+  height: 30px;
 }

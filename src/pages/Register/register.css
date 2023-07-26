@@ -1,13 +1,7 @@
-.formulario{
-  display: flex;
-  margin-top: 20px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
 .form{
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
   align-items: center;
   justify-content: center;
   width: 550px;
@@ -18,7 +12,9 @@
 .form-group{
   display: flex;
   flex-direction: column;
-  width: 420px;
+  justify-content: center;
+  padding-bottom: 20px;
+  width: 440px;
   height: 95px;
 }
 .input-image img{
@@ -31,8 +27,17 @@
   display: flex;
   flex-direction: row;
 }
+.input-order input{
+  display: flex;
+  flex-direction: row;
+  width: 420px;
+  border: 0.5px solid rgb(181, 187, 187);
+  height: 37px;
+  border-radius: 5px;
+}
 .submit-btn{
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 20px;
 }
