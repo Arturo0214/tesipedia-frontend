@@ -5,6 +5,7 @@ import { toast } from 'react-toastify'
 import { register, reset } from '../../features/auth/authSlice'
 import './register.css'
 import Navbar from '../../components/Navbar/Navbar'
+import Footer from "../../components/Footer/Footer"
 import mail from '../../assets/email.png'
 import usuario from '../../assets/usuario.png'
 import passw1 from '../../assets/bloqueado.png'
@@ -136,6 +137,9 @@ const Register = () => {
             </div>
       </form>
     </section>
+    <footer>
+      <Footer/>
+    </footer>
     </>
   )
 }
