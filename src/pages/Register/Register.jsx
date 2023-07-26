@@ -59,13 +59,10 @@ const Register = () => {
       <Navbar/>
     </header>
     <section className="d-flex justify-content-center">
-      <form className="form col-md-6" onSubmit={onSubmit}>
+      <form className="form" onSubmit={onSubmit}>
         <fieldset>
-          <h2 className="title d-flex justify-content-center">Regístrate</h2>
+          <h3 className="title d-flex justify-content-center">Regístrate</h3>
           <div className="form-group">
-            <label htmlFor="name" className="form-label mt-4">
-              <strong>Nombre:</strong>
-            </label>
             <div className="input-order">
             <span className="input-image">
               <img src={usuario} alt="Username" />
@@ -82,9 +79,6 @@ const Register = () => {
             </div>
           </div>
           <div className="form-group">
-            <label htmlFor="email" className="form-label mt-4">
-              <strong>Correo:</strong>
-            </label>
             <div className="input-order">
             <span className="input-image">
               <img src={mail} alt="Email" />
@@ -101,9 +95,6 @@ const Register = () => {
             </div>
           </div>
           <div className="form-group">
-            <label htmlFor="password" className="form-label mt-4">
-              <strong>Contraseña:</strong>
-            </label>
             <div className="input-order">
             <span className="input-image">
               <img src={passw1} alt="Password" />
@@ -120,9 +111,6 @@ const Register = () => {
             </div>
           </div>
           <div className="form-group">
-            <label htmlFor="password-2" className="form-label mt-4">
-              <strong>Connfirmar contraseña:</strong>
-            </label>
             <div className="input-order">
             <span className="input-image">
               <img src={passw2} alt="Password" />
@@ -139,7 +127,6 @@ const Register = () => {
             </div>
           </div>
           </fieldset>
-          <div className="field">
             <div className="submit-btn">
               <button className="btn btn-primary" type="submit">
                 <strong>
@@ -147,7 +134,6 @@ const Register = () => {
                 </strong>
               </button>
             </div>
-          </div>
       </form>
     </section>
     </>
