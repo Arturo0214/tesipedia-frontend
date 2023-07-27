@@ -75,6 +75,15 @@ export const isUserAdmin = () => {
   return false
 }
 
+export function getUserFromCookie() {
+  const userCookie = getCookie('user');
+  return userCookie ? JSON.parse(userCookie) : null;
+}
+
+export function setUserToCookie(user) {
+  setCookie('user', JSON.stringify(user), 1);
+}
+
 const authService = {
   register,
   login,

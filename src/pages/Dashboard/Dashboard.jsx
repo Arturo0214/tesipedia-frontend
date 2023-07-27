@@ -1,15 +1,29 @@
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux'; // Importamos useSelector
-import Footer from '../../components/Footer/Footer';
-import Navbar from '../../components/Navbar/Navbar';
+import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import Footer from '../../components/Footer/Footer'
+import Navbar from '../../components/Navbar/Navbar'
 import './dashboard.css';
+import { getUserFromCookie, setUserToCookie } from '../../features/auth/authService'
 
 const Dashboard = () => {
-  // Eliminamos el estado de isLoggedIn ya que obtendremos la información desde Redux
-  const { isAuthenticated } = useSelector((state) => state.auth); // Obtenemos la información de autenticación desde el estado global
+  const [user, setUser] = useState(getUserFromCookie())
+  const { isAuthenticated } = useSelector((state) => state.auth)
 
-  // No es necesario el useEffect para obtener la información del usuario autenticado, ya que lo obtenemos desde Redux.
+  useEffect(() => {
+    const handleUserUpdate = () => {
+      const userCookie = getUserFromCookie()
+      setUser(userCookie)
+    }
+    handleUserUpdate()
+  }, [])
 
+  // Función para guardar el usuario en la cookie cuando se actualiza el estado global
+  useEffect(() => {
+    if (user) {
+      setUserToCookie(user)
+    }
+  }, [user])
+  
   return (
     <>
       <div className="container">
@@ -19,17 +33,18 @@ const Dashboard = () => {
         <main>
           {isAuthenticated ? (
             // Aquí va el contenido del dashboard para usuarios autenticados
-            <div className="dashboard-content">
+            <div className="dashboard-content form-container">
               <div className="columns is-mobile">
                 <div className="column">First column</div>
                 <div className="column">Second column</div>
                 <div className="column">Third column</div>
                 <div className="column">Fourth column</div>
               </div>
+              <p>Usuario autenticado: {user ? user.name : 'No hay usuario'}</p> {/* Ejemplo de cómo mostrar información del usuario */}
             </div>
           ) : (
             // Aquí va el contenido del dashboard para usuarios no autenticados
-            <div className="dashboard-content">
+            <div className="dashboard-content form-container">
               <p>Contenido del dashboard para usuarios no autenticados</p>
             </div>
           )}
@@ -39,7 +54,7 @@ const Dashboard = () => {
         </footer>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Dashboard;
+export default Dashboard
