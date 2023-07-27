@@ -1,35 +1,41 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import logo from '../../assets/logo.png';
-import menu from '../../assets/menu.png';
-import './navbar.css';
+import './navbar.css'
+import { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom'
+import { logout, reset } from '../../features/auth/authSlice'
+import { useSelector, useDispatch } from 'react-redux'
+import logo from '../../assets/logo.png'
+import menu from '../../assets/menu.png'
 
 const Navbar = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const [isActive, setIsActive] = useState(false);
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const { user } = useSelector((state) => state.auth)
+  const [isActive, setIsActive] = useState(false)
 
   const toggleNavbar = () => {
-    setIsActive(!isActive);
-  };
+    setIsActive(!isActive)
+  }
 
+  const onLogout = () => {
+    dispatch(logout())
+    dispatch(reset())
+    navigate('/login')
+  }
   useEffect(() => {
     // Close the navbar when the user clicks anywhere outside of it
     const handleDocumentClick = (e) => {
       if (!e.target.closest('.navbar')) {
-        setIsActive(false);
+        setIsActive(false)
       }
-    };
-
-    document.addEventListener('click', handleDocumentClick);
-
+    }
+    document.addEventListener('click', handleDocumentClick)
     return () => {
-      document.removeEventListener('click', handleDocumentClick);
-    };
-  }, []);
+      document.removeEventListener('click', handleDocumentClick)
+    }
+  }, [])
 
   return (
-    <nav className="navbar navbar-expand-lg bg-light" data-bs-theme="light">
+    <nav className="navbar navbar-expand-lg bg-light fixed-top" data-bs-theme="light">
       <div className='container-fluid'>
         <Link to="/" className="navbar-brand">
           <img className="logo" src={logo} alt="Logo" />
@@ -94,27 +100,43 @@ const Navbar = () => {
             </li>
           </ul>
           <div className="navbar-end">
-            <ul className="navbar-nav">
-              <li className="nav-item">
-                <Link to="/login" className="nav-link">
-                  <button className="btn btn-primary">
-                    <strong>Inicia Sesión</strong>
-                  </button>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/register" className="nav-link">
-                  <button className="btn btn-info">
-                    <strong>Regístrate</strong>
-                  </button>
-                </Link>
-              </li>
-            </ul>
+            {user ? (
+              // Si el usuario está autenticado, mostramos el botón de cerrar sesión
+              <button className="btn btn-danger" onClick={onLogout}>
+                <strong>Cerrar Sesión</strong>
+              </button>
+            ) : (
+              // Si el usuario no está autenticado, mostramos los botones de inicio de sesión y registro
+              <>
+                <ul className="navbar-nav">
+                  <li className="nav-item">
+                    <Link to="/login" className="nav-link">
+                      <button className="btn btn-primary">
+                        <strong>Inicia Sesión</strong>
+                      </button>
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to="/register" className="nav-link">
+                      <button className="btn btn-info">
+                        <strong>Regístrate</strong>
+                      </button>
+                    </Link>
+                  </li>
+                </ul>
+              </>
+            )}
           </div>
         </div>
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
+
+
+
+
+
+

@@ -1,10 +1,10 @@
 .form{
   display: flex;
   flex-direction: column;
-  margin-top: 50px;
+  margin-top: 130px;
   align-items: center;
-  justify-content: center;
-  width: 430px;
+  justify-content: space-around;
+  width: 410px;
   height: 400px;
   border: 1px solid #ccc;
   border-radius: 20px;
@@ -61,4 +61,16 @@
   border: 0.5px solid rgb(181, 187, 187);
   height: 37px;
   border-radius: 5px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Establecer una altura mínima de la ventana gráfica para que el footer siempre esté al final */
+}
+/* Agrega estilos a la sección principal que contiene el formulario y el footer */
+.form-container {
+  display: grid;
+  grid-template-rows: 1fr auto; /* Una fila ocupará todo el espacio disponible y la otra será el tamaño del footer */
+  min-height: 100vh; /* Asegura que la sección principal tenga al menos el 100% del alto de la ventana gráfica */
 }

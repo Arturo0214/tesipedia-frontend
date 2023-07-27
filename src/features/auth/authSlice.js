@@ -42,65 +42,59 @@ export const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-      reset: (state) => {
-          state.isSuccess = false
-          state.isLoading = false
-          state.message = ''
-          state.error = null
-          state.user = null
-          state.isAdminLoggedIn = false
-          state.isAuthenticated = false
-      },
+    reset: (state) => {
+      Object.assign(state, initialState);
+    },
   },
   extraReducers: (builder) => {
     builder
       .addCase(register.pending, (state) => {
-        state.isLoading = true
+        state.isLoading = true;
       })
       .addCase(register.fulfilled, (state, action) => {
-        state.isLoading = false
-        state.isSuccess = true
-        state.user = action.payload
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.user = action.payload;
       })
       .addCase(register.rejected, (state, action) => {
-        state.isLoading = false
-        state.error = action.payload
-        state.message = action.payload
-        state.user = null
+        state.isLoading = false;
+        state.error = action.payload;
+        state.message = action.payload;
+        state.user = null;
       })
       .addCase(login.pending, (state) => {
-        state.isLoading = true
+        state.isLoading = true;
       })
       .addCase(login.fulfilled, (state, action) => {
-        state.isLoading = false
-        state.isSuccess = true
-        state.isAuthenticated = true
-        state.isAdminLoggedIn = isUserAdmin()
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.isAuthenticated = true;
+        state.isAdminLoggedIn = isUserAdmin() // If admin status can change, handle it separately.
         state.user = action.payload
       })
       .addCase(login.rejected, (state, action) => {
-        state.isLoading = false
-        state.isSuccess = false
-        state.error = true
-        state.user = null
-        state.isAdminLoggedIn = false
-        state.message = action.payload
+        state.isLoading = false;
+        state.isSuccess = false;
+        state.error = true;
+        state.user = null;
+        state.isAdminLoggedIn = false;
+        state.message = action.payload;
       })
       .addCase(logout.pending, (state) => {
-        state.isLoading = true
+        state.isLoading = true;
       })
       .addCase(logout.fulfilled, (state) => {
-        state.isLoading = false
-        state.isSuccess = false
-        state.isAdminLoggedIn = false
-        state.isAuthenticated = false
-        state.user = null
+        state.isLoading = false;
+        state.isSuccess = false;
+        state.isAdminLoggedIn = false;
+        state.isAuthenticated = false;
+        state.user = null;
       })
       .addCase(logout.rejected, (state, action) => {
-        state.isLoading = false
-        state.error = action.payload
-      })
-  }
-})
+        state.isLoading = false;
+        state.error = action.payload;
+      });
+  },
+});
 export const { reset } = authSlice.actions
 export default authSlice.reducer

@@ -28,6 +28,7 @@ const Register = () => {
   useEffect(() => {
     if (error) {
       toast.error(message)
+      console.log(error)
     }
     if (isSuccess) {
       navigate('/login')
@@ -56,10 +57,11 @@ const Register = () => {
 
   return (
     <>
+    <div className="container">
     <header>
       <Navbar/>
     </header>
-    <section className="d-flex justify-content-center">
+    <section className="d-flex justify-content-center form-container">
       <form className="form" onSubmit={onSubmit}>
         <fieldset>
           <h3 className="title d-flex justify-content-center">Regístrate</h3>
@@ -140,6 +142,7 @@ const Register = () => {
     <footer>
       <Footer/>
     </footer>
+    </div>
     </>
   )
 }
