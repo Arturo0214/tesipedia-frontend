@@ -19,3 +19,8 @@
   justify-content: flex-start;
   align-items: center;
 }
+.form-container {
+  display: grid;
+  grid-template-rows: 1fr auto; /* Una fila ocupará todo el espacio disponible y la otra será el tamaño del footer */
+  min-height: 100vh; /* Asegura que la sección principal tenga al menos el 100% del alto de la ventana gráfica */
+}
