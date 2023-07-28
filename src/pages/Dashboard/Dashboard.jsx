@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import Footer from '../../components/Footer/Footer'
 import Navbar from '../../components/Navbar/Navbar'
-import './dashboard.css';
+import './dashboard.css'
 import { getUserFromCookie, setUserToCookie } from '../../features/auth/authService'
 
 const Dashboard = () => {
@@ -40,7 +40,12 @@ const Dashboard = () => {
                 <div className="column">Third column</div>
                 <div className="column">Fourth column</div>
               </div>
-              <p>Usuario autenticado: {user ? user.name : 'No hay usuario'}</p> {/* Ejemplo de cómo mostrar información del usuario */}
+              <p>
+              Usuario autenticado:
+                <strong>
+                  {user ? user.name : 'No hay usuario'}
+                  </strong>
+              </p> {/* Ejemplo de cómo mostrar información del usuario */}
             </div>
           ) : (
             // Aquí va el contenido del dashboard para usuarios no autenticados

@@ -1,4 +1,4 @@
-import './navbar.css'
+import './navbar.scss'
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import { logout, reset } from '../../features/auth/authSlice'
@@ -52,51 +52,24 @@ const Navbar = () => {
           <ul className="navbar-nav me-auto">
             <li className="nav-item">
               <Link to="/" className="nav-link">
-                Home
+                Dashboard
                 <span className="visually-hidden">(current)</span>
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/features" className="nav-link">
-                Features
-              </Link>
-            </li>
-            <li className="nav-item">
               <Link to="/pricing" className="nav-link">
-                Pricing
+                Precios
               </Link>
             </li>
             <li className="nav-item">
               <Link to="/about" className="nav-link">
-                About
+                ¿Quiénes somos?
               </Link>
             </li>
-            <li className="nav-item dropdown">
-              <Link
-                to="#"
-                className="nav-link dropdown-toggle"
-                data-bs-toggle="dropdown"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Dropdown
+            <li className="nav-item">
+              <Link to="/about" className="nav-link">
+                ¿Cómo funciona?
               </Link>
-              <div className="dropdown-menu">
-                <Link to="#" className="dropdown-item">
-                  Action
-                </Link>
-                <Link to="#" className="dropdown-item">
-                  Another action
-                </Link>
-                <Link to="#" className="dropdown-item">
-                  Something else here
-                </Link>
-                <div className="dropdown-divider" />
-                <Link to="#" className="dropdown-item">
-                  Separated link
-                </Link>
-              </div>
             </li>
           </ul>
           <div className="navbar-end">

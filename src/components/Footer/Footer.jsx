@@ -1,4 +1,4 @@
-import './footer.css'
+import './footer.scss'
 
 const Footer = () => {
   return (
@@ -12,7 +12,7 @@ const Footer = () => {
             </div>
             <br />
             <div className="col-12 col-md-1 text-justify">
-              <a>Dudas frecuentes</a>
+              <a>Preguntas frecuentes</a>
             </div>
             <div className="col-12 col-md-1 text-justify">
               <a>Privacidad</a>
