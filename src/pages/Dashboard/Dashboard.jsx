@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import Footer from '../../components/Footer/Footer'
 import Navbar from '../../components/Navbar/Navbar'
+import WhatsAppButton from '../../components/WhastApp/WhatsAppButton'
 import './dashboard.css'
 import { getUserFromCookie, setUserToCookie } from '../../features/auth/authService'
 
@@ -51,8 +52,12 @@ const Dashboard = () => {
             // Aquí va el contenido del dashboard para usuarios no autenticados
             <div className="dashboard-content form-container">
               <p>Contenido del dashboard para usuarios no autenticados</p>
+              <WhatsAppButton/>
             </div>
+            
           )}
+
+
         </main>
         <footer>
           <Footer />
