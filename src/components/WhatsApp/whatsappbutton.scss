@@ -1,7 +1,7 @@
 .whatsapp-button {
     position: fixed;
     bottom: 80px; 
-    right: 56px;
+    right: 52px;
     width: 62px;
     height: 62px;
     background-color: #25d366;
@@ -15,11 +15,11 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 
     &:hover {
-        background-color: #128c7e; 
+        background-color: #16ac9a; 
         transform: scale(1.1); 
         transition: background-color 0.2s ease, transform 0.2s ease; 
       }
-    
+      
     // Estilos para dispositivos pequeños (por ejemplo, hasta 576px de ancho)
     @media (max-width: 576px) {
         bottom: 60px; 
@@ -34,18 +34,26 @@
   bottom: 65px; 
   left: 50%;
   transform: translateX(-50%);
-  background-color: #25d366;
-  border: 2px #128c7e;
+  background-color: #ffffff;
+  border: 0.5px solid #000000; 
   text-align: center;
   width: 130px;
-  color: #fff;
+  color: rgb(0, 0, 0);
   font-size: 14px;
   padding: 5px 10px;
   border-radius: 5px;
   opacity: 0.9;
-  display: none; /* Oculta el mensaje por defecto */
+  display: none; 
+
+  // Estilos para pantallas pequeñas
+  @media (max-width: 576px) {
+    bottom: 50px; 
+    width: 110px; 
+    font-size: 12px;
+    padding: 3px 8px;
+  }
 }
-  
+
 .whatsapp-button:hover .whatsapp-message {
   display: block; /* Muestra el mensaje al hacer hover en el botón */
 }

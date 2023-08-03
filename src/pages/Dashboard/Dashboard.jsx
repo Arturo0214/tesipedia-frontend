@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import Footer from '../../components/Footer/Footer'
 import Navbar from '../../components/Navbar/Navbar'
-import WhatsAppButton from '../../components/WhastApp/WhatsAppButton'
+import WhatsAppButton from '../../components/WhatsApp/WhatsAppButton'
 import './dashboard.css'
 import { getUserFromCookie, setUserToCookie } from '../../features/auth/authService'
 
@@ -47,6 +47,7 @@ const Dashboard = () => {
                   {user ? user.name : 'No hay usuario'}
                   </strong>
               </p> {/* Ejemplo de cómo mostrar información del usuario */}
+              <WhatsAppButton></WhatsAppButton>
             </div>
           ) : (
             // Aquí va el contenido del dashboard para usuarios no autenticados
@@ -56,8 +57,6 @@ const Dashboard = () => {
             </div>
             
           )}
-
-
         </main>
         <footer>
           <Footer />
