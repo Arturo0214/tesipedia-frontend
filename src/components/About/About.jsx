@@ -1,12 +1,8 @@
-import React from 'react'
-import Navbar from '../../components/Navbar/Navbar'
-import Footer from '../../components/Footer/Footer'
 import './about.css'
 
 const About = () => {
   return (
     <>
-      <Navbar />
       <div className="about-container">
         <h1>Sobre Nosotros</h1>
         <p>
@@ -18,7 +14,6 @@ const About = () => {
           contenido relevante.
         </p>
       </div>
-      <Footer />
     </>
   )
 }

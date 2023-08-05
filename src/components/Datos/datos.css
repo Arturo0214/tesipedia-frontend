@@ -1,0 +1,28 @@
+
+.dashboard-content {
+  display: flex;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100%;
+}
+.container{
+  padding-left: 0;
+  padding-right: 0;
+  max-width: none!important;
+}
+.columns {
+  width: 100%;
+}
+.column{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.form-container {
+  display: grid;
+  grid-template-rows: 1fr auto; /* Una fila ocupará todo el espacio disponible y la otra será el tamaño del footer */
+  min-height: 100vh; /* Asegura que la sección principal tenga al menos el 100% del alto de la ventana gráfica */
+}
+  

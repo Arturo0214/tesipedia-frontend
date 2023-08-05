@@ -12,7 +12,7 @@ $menu-icon-height: 30px;
   &.navbar-expand-lg {
     &.bg-light {
       &.fixed-top {
-        background-color: $navbar-bg-color;
+        background-color: transparent;
       }
     }
   }
@@ -35,6 +35,9 @@ $menu-icon-height: 30px;
     padding: 10px;
     &.show {
       display: block;
+    }
+    .nav-link {
+      font-size: 15px; /* Increase the font size to your desired value */
     }
   }
   .logo {
