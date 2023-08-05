@@ -1,16 +1,18 @@
-import './navbar.scss'
-import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { logout, reset } from '../../features/auth/authSlice'
 import { useSelector, useDispatch } from 'react-redux'
+import { Link as ScrollLink } from 'react-scroll'
 import logo from '../../assets/logo.png'
 import menu from '../../assets/menu.png'
+import './navbar.scss'
 
 const Navbar = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const { user } = useSelector((state) => state.auth)
   const [isActive, setIsActive] = useState(false)
+  const location = useLocation()
 
   const toggleNavbar = () => {
     setIsActive(!isActive)
@@ -21,8 +23,8 @@ const Navbar = () => {
     dispatch(reset())
     navigate('/login')
   }
+
   useEffect(() => {
-    // Close the navbar when the user clicks anywhere outside of it
     const handleDocumentClick = (e) => {
       if (!e.target.closest('.navbar')) {
         setIsActive(false)
@@ -33,6 +35,8 @@ const Navbar = () => {
       document.removeEventListener('click', handleDocumentClick)
     }
   }, [])
+
+  const isOnDashboard = location.pathname === '/'
 
   return (
     <nav className="navbar navbar-expand-lg bg-light fixed-top" data-bs-theme="light">
@@ -51,26 +55,63 @@ const Navbar = () => {
         <div className={`collapse navbar-collapse ${isActive ? 'show' : ''}`} id="navbarColor03">
           <ul className="navbar-nav me-auto">
             <li className="nav-item">
-              <Link to="/" className="nav-link">
-                Dashboard
-                <span className="visually-hidden">(current)</span>
-              </Link>
+              {isOnDashboard ? (
+                <ScrollLink
+                  to="inicio-section"
+                  smooth={true}
+                  duration={350}
+                  offset={-110}
+                  className="nav-link"
+                >
+                  Inicio
+                  <span className="visually-hidden">(current)</span>
+                </ScrollLink>
+              ) : (
+                <Link to="/" className="nav-link">
+                  Inicio
+                  <span className="visually-hidden">(current)</span>
+                </Link>
+              )}
             </li>
-            <li className="nav-item">
-              <Link to="/pricing" className="nav-link">
-                Precios
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/about" className="nav-link">
-                ¿Quiénes somos?
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/work" className="nav-link">
-                ¿Cómo trabajamos?
-              </Link>
-            </li>
+            {/* Condición para ocultar los botones */}
+            {isOnDashboard && (
+              <>
+                <li className="nav-item">
+                  <ScrollLink
+                    to="about-section"
+                    smooth={true}
+                    duration={350}
+                    offset={-110}
+                    className="nav-link"
+                  >
+                    ¿Quiénes somos?
+                  </ScrollLink>
+                </li>
+
+                <li className="nav-item">
+                  <ScrollLink
+                    to="work-section"
+                    smooth={true}
+                    duration={350}
+                    offset={-100}
+                    className="nav-link"
+                  >
+                    ¿Cómo trabajamos?
+                  </ScrollLink>
+                </li>
+                <li className="nav-item">
+                  <ScrollLink
+                    to="datos-section"
+                    smooth={true}
+                    duration={350}
+                    offset={-10}
+                    className="nav-link"
+                  >
+                    Tratamiento de Datos
+                  </ScrollLink>
+                </li>
+              </>
+            )}
           </ul>
           <div className="navbar-end">
             {user ? (
@@ -107,7 +148,6 @@ const Navbar = () => {
 }
 
 export default Navbar
-
 
 
 

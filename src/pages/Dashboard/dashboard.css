@@ -3,24 +3,109 @@
   padding: 0;
   align-items: center;
   justify-content: center;
-  height: 100px;
   width: 100%;
+  height: 100vh;
+  margin-top: 0;
 }
-.container{
-  padding-left: 0;
-  padding-right: 0;
-  max-width: none!important;
-}
+
 .columns {
   width: 100%;
 }
-.column{
+
+.column {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 }
-.form-container {
-  display: grid;
-  grid-template-rows: 1fr auto; /* Una fila ocupará todo el espacio disponible y la otra será el tamaño del footer */
-  min-height: 100vh; /* Asegura que la sección principal tenga al menos el 100% del alto de la ventana gráfica */
+
+.inicio-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
 }
+
+.inicio-container img {
+  margin-top: 20px;
+  width: 100%;
+  height: 720px;
+}
+
+.inicio-container {
+  position: relative;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block; /* or "block" depending on your layout */
+}
+
+.caption {
+  color: white;
+  position: absolute;
+  top: 20%; /* Adjust this value to vertically center the text */
+  right: 65%; /* Adjust this value to horizontally center the text */
+  transform: translate(50%, -50%); /* Center the caption precisely */
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0); /* Optional: Add a semi-transparent background for better readability */
+  padding: 10px; /* Optional: Add some padding to the caption */
+  text-align: center;
+  width: 650px;
+  opacity: 0; /* Inicialmente, ocultar la caption */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Transiciones suaves */
+}
+
+.caption h2 {
+  font-size: 33px;
+}
+
+.caption-2 {
+  color: white;
+  position: absolute;
+  top: 85%;
+  right: 65%;
+  transform: translate(50%, -50%);
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 10px;
+  text-align: center;
+  width: 650px;
+  opacity: 0; /* Inicialmente, ocultar la caption */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Transiciones suaves */
+}
+
+/* Animación para la primera caption */
+@keyframes appearCaption1 {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación para la segunda caption */
+@keyframes appearCaption2 {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Aplicar animaciones a las captions en diferentes momentos */
+.caption-1 {
+  animation: appearCaption1 1s ease 0.5s forwards;
+}
+
+.caption-2 {
+  animation: appearCaption2 1s ease 2s forwards;
+}
+

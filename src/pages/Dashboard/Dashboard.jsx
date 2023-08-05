@@ -1,10 +1,14 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState} from 'react'
 import { useSelector } from 'react-redux'
+import { getUserFromCookie, setUserToCookie } from '../../features/auth/authService'
 import Footer from '../../components/Footer/Footer'
 import Navbar from '../../components/Navbar/Navbar'
 import WhatsAppButton from '../../components/WhatsApp/WhatsAppButton'
+import Work from '../../components/Work/Work'
+import About from '../../components/About/About'
+import Datos from '../../components/Datos/Datos'
 import './dashboard.css'
-import { getUserFromCookie, setUserToCookie } from '../../features/auth/authService'
+import Inicio from '../../assets/estirado4.jpg'
 
 const Dashboard = () => {
   const [user, setUser] = useState(getUserFromCookie())
@@ -29,12 +33,12 @@ const Dashboard = () => {
     <>
       <div className="container">
         <header>
-          <Navbar />
+          <Navbar/>
         </header>
         <main>
           {isAuthenticated ? (
             // Aquí va el contenido del dashboard para usuarios autenticados
-            <div className="dashboard-content form-container">
+            <div className="dashboard-content inicio-container">
               <div className="columns is-mobile">
                 <div className="column">First column</div>
                 <div className="column">Second column</div>
@@ -46,16 +50,34 @@ const Dashboard = () => {
                 <strong>
                   {user ? user.name : 'No hay usuario'}
                   </strong>
-              </p> {/* Ejemplo de cómo mostrar información del usuario */}
-              <WhatsAppButton></WhatsAppButton>
+              </p>
+              <WhatsAppButton/>
             </div>
           ) : (
             // Aquí va el contenido del dashboard para usuarios no autenticados
-            <div className="dashboard-content form-container">
-              <p>Contenido del dashboard para usuarios no autenticados</p>
+            <>
+              <section id='inicio-section' class='inicio-container'>
+                <div class="image-container">
+                  <img src={Inicio} alt='Inicio'/>
+                  <div class="caption caption-1">
+                    <h2>Las grandes ideas tienen pequeños inicios.</h2>
+                  </div>
+                  <div class="caption caption-2">
+                    <p>Nosotros te ayudamos a hacerlas realidad.</p>
+                  </div>
+                </div>
+              </section>
+              <section id='about-section'>
+                <About/>
+              </section>
+              <section id='work-section'>
+                <Work />
+              </section>
+              <section id='datos-section'>
+                <Datos />
+              </section>
               <WhatsAppButton/>
-            </div>
-            
+            </>
           )}
         </main>
         <footer>
