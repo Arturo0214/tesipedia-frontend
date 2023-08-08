@@ -66,6 +66,9 @@ const Dashboard = () => {
                     <p>Nosotros te ayudamos a hacerlas realidad.</p>
                   </div>
                 </div>
+                <div class="caption caption-3">
+                  <p>En Tesipedia nos importa que alcances el éxito profesional, por eso te brindamos apoyo con los mejores profesionales en el área.</p>
+                </div>
               </section>
               <section id='about-section'>
                 <About/>

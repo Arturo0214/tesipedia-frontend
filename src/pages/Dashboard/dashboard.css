@@ -7,17 +7,14 @@
   height: 100vh;
   margin-top: 0;
 }
-
 .columns {
   width: 100%;
 }
-
 .column {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 .inicio-container {
   display: flex;
   flex-direction: column;
@@ -30,7 +27,9 @@
 .inicio-container img {
   margin-top: 20px;
   width: 100%;
-  height: 720px;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 0 auto;
 }
 
 .inicio-container {
@@ -40,13 +39,16 @@
 .image-container {
   position: relative;
   display: inline-block; /* or "block" depending on your layout */
+  width: 100%; /* Ajustar el ancho al 100% */
+  max-width: 100%; /* Limitar el ancho máximo */
+  margin: 0 auto; /* Centrar horizontalmente */
 }
 
 .caption {
   color: white;
   position: absolute;
   top: 20%; /* Adjust this value to vertically center the text */
-  right: 65%; /* Adjust this value to horizontally center the text */
+  right: 55%; /* Adjust this value to horizontally center the text */
   transform: translate(50%, -50%); /* Center the caption precisely */
   text-align: center;
   background-color: rgba(255, 255, 255, 0); /* Optional: Add a semi-transparent background for better readability */
@@ -65,7 +67,7 @@
   color: white;
   position: absolute;
   top: 85%;
-  right: 65%;
+  right: 55%;
   transform: translate(50%, -50%);
   text-align: center;
   background-color: rgba(255, 255, 255, 0);
@@ -102,10 +104,62 @@
 
 /* Aplicar animaciones a las captions en diferentes momentos */
 .caption-1 {
-  animation: appearCaption1 1s ease 0.5s forwards;
+  animation: appearCaption1 2s ease 1s forwards;
+}
+.caption-2 {
+  animation: appearCaption2 3s ease 2s forwards;
+}
+.caption-3 {
+  animation: appearCaption3 2s ease 4s forwards; /* Ajustar el tiempo según tus preferencias */
+}
+/* Media queries para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .image-container {
+    position: relative;
+    display: flex; 
+    width: 90%; /* Ajustar el ancho al 100% */
+    max-width: 1000px; /* Limitar el ancho máximo */
+    margin: 0 auto; /* Centrar horizontalmente */
+    height: 50%;
+  }
+  .caption-1{
+    display: flex;
+    position: relative;
+    font-size: 20px;
+  }
+  .caption-2 {
+    width: 90%; /* Reducir el ancho para que se ajuste en pantallas más pequeñas */
+    right: 30%;
+    transform: translate(50%, -50%);
+    text-align: center;
+    font-size: 18px; /* Ajustar el tamaño de fuente para una mejor legibilidad */
+  }
 }
 
-.caption-2 {
-  animation: appearCaption2 1s ease 2s forwards;
+.caption-3 {
+  color: white;
+  position: absolute;
+  top: 20%; /* Ajusta esta posición verticalmente según tu preferencia */
+  left: 65%; /* Ajusta esta posición horizontalmente según tu preferencia */
+  transform: translate(-50%, -50%); /* Centrar el cuadro de texto */
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.7); /* Cambiar el color de fondo según tus preferencias */
+  padding: 20px; /* Añadir un poco de espacio alrededor del texto */
+  width: 70%; /* Ajustar el ancho del cuadro de texto */
+  max-width: 500px; /* Limitar el ancho máximo */
+  opacity: 0; /* Inicialmente, ocultar el cuadro de texto */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Transiciones suaves */
+}
+
+/* Animación para la tercera caption */
+@keyframes appearCaption3 {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
