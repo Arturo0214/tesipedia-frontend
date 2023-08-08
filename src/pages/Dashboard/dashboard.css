@@ -48,7 +48,7 @@
   color: white;
   position: absolute;
   top: 20%; /* Adjust this value to vertically center the text */
-  right: 55%; /* Adjust this value to horizontally center the text */
+  right: 54%; /* Adjust this value to horizontally center the text */
   transform: translate(50%, -50%); /* Center the caption precisely */
   text-align: center;
   background-color: rgba(255, 255, 255, 0); /* Optional: Add a semi-transparent background for better readability */
@@ -67,7 +67,7 @@
   color: white;
   position: absolute;
   top: 85%;
-  right: 55%;
+  right: 54%;
   transform: translate(50%, -50%);
   text-align: center;
   background-color: rgba(255, 255, 255, 0);
@@ -139,16 +139,17 @@
 .caption-3 {
   color: white;
   position: absolute;
-  top: 20%; /* Ajusta esta posición verticalmente según tu preferencia */
-  left: 65%; /* Ajusta esta posición horizontalmente según tu preferencia */
+  top: 18%; /* Ajusta esta posición verticalmente según tu preferencia */
+  left: 59%; /* Ajusta esta posición horizontalmente según tu preferencia */
   transform: translate(-50%, -50%); /* Centrar el cuadro de texto */
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.7); /* Cambiar el color de fondo según tus preferencias */
+  background-color: rgba(0, 0, 0, 0.65); /* Cambiar el color de fondo según tus preferencias */
   padding: 20px; /* Añadir un poco de espacio alrededor del texto */
   width: 70%; /* Ajustar el ancho del cuadro de texto */
   max-width: 500px; /* Limitar el ancho máximo */
   opacity: 0; /* Inicialmente, ocultar el cuadro de texto */
   transition: opacity 0.5s ease, transform 0.5s ease; /* Transiciones suaves */
+  border-radius: 20px;
 }
 
 /* Animación para la tercera caption */
