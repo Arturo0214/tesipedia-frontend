@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import {useState, useEffect } from 'react'
 import charla from '../../assets/chateando.png'
 import profesional from '../../assets/medico.png'
 import negocio from '../../assets/negociacion.png'
@@ -6,6 +6,10 @@ import contrato from'../../assets/trofeo.png'
 import './work.css'
 
 const Work = () => {
+
+  const [isPaso1Visible, setPaso1Visible] = useState(false);
+  const [isCharlaVisible, setCharlaVisible] = useState(false);
+
 
   useEffect(() => {
     const steps = document.querySelectorAll('.timeline-step1, .timeline-step2, .timeline-step3, .timeline-step4')
@@ -24,6 +28,7 @@ const Work = () => {
         activeStep.classList.add('active')
       }
     }
+    
     window.addEventListener('scroll', handleScroll)
     return () => {
       window.removeEventListener('scroll', handleScroll)
