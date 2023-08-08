@@ -9,6 +9,7 @@ import About from '../../components/About/About'
 import Datos from '../../components/Datos/Datos'
 import './dashboard.css'
 import Inicio from '../../assets/estirado4.jpg'
+import reactLogo from '../../assets/react.svg'
 
 const Dashboard = () => {
   const [user, setUser] = useState(getUserFromCookie())
@@ -58,7 +59,9 @@ const Dashboard = () => {
             <>
               <section id='inicio-section' class='inicio-container'>
                 <div class="image-container">
-                  <img src={Inicio} alt='Inicio'/>
+                <div className="logo-container">
+                  <img src={reactLogo} alt="React Logo" className="react-logo" />
+                </div>
                   <div class="caption caption-1">
                     <h2>Las grandes ideas tienen pequeños inicios.</h2>
                   </div>
