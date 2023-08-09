@@ -8,7 +8,6 @@ import Work from '../../components/Work/Work'
 import About from '../../components/About/About'
 import Datos from '../../components/Datos/Datos'
 import './dashboard.css'
-import Inicio from '../../assets/estirado4.jpg'
 import reactLogo from '../../assets/react.svg'
 
 const Dashboard = () => {

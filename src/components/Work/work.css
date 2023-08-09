@@ -145,7 +145,7 @@
   cursor: pointer;
 }
 .charla:hover {
-  transform: scale(1.13); /* Hacemos que crezca en un 20% cuando se pase el cursor */
+  transform: scale(1.13);
 }
 .profesional{
   display: flex;
@@ -331,17 +331,19 @@
   align-items: center;
   padding-top: 10px;
   justify-content: center;
-
   width: 230px;
   height: 210px;
-  transition: transform 0.3s ease; 
   cursor: pointer; 
+  animation: hoverAnimation 2s ease-in-out infinite alternate;
 }
-.contract:hover {
-  transform: scale(1.15); 
+@keyframes hoverAnimation {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.13);
+  }
 }
-/* Media Queries para hacer el diseño responsive */
-/* Cambios para pantallas de tamaño medio */
 @media (max-width: 768px) {
   .work-container {
     flex-direction: column;

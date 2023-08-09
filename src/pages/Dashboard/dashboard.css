@@ -7,6 +7,9 @@
   height: 100vh;
   margin-top: 0;
 }
+body{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
 .columns {
   width: 100%;
 }
@@ -92,9 +95,6 @@
 .caption-2 {
   animation: appearCaption2 2s ease 2s forwards;
 }
-.caption-3 {
-  animation: appearCaption3 2s ease 4s forwards; /* Ajustar el tiempo según tus preferencias */
-}
 
 /* Media queries para pantallas más pequeñas */
 @media (max-width: 768px) {
@@ -124,10 +124,10 @@
   color: white;
   position: absolute;
   top: 18%; 
-  left: 59%; 
+  left: 56%; 
   transform: translate(-50%, -50%); 
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.65); 
+  background-color: rgba(0, 0, 0, 0.7); 
   padding: 20px; 
   width: 70%; 
   max-width: 500px; 
@@ -139,25 +139,29 @@
 @keyframes appearCaption3 {
   0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateX(20px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(10px);
   }
 }
+.caption-3 {
+  animation: appearCaption3 1.5s ease 3s forwards; /* Ajustar el tiempo según tus preferencias */
+}
 .react-logo {
-  top: 60%;
-  right: 62%;
-  width: 220px; /* Ajusta el tamaño del logo según sea necesario */
-  height: auto;
+  display: flex;
+  width: 220px;
   position: absolute;
+  height: 130px;
+  right: 62%;
+  top: 60%;
   transform: translate(-50%, -50%);
   filter: drop-shadow(0 0 2em #61dafbaa);
   animation: rotate 5s linear infinite; 
 }
 .react-logo:hover {
-  right: 61%;
+  right: 59%;
   width: 230px;
   height: auto;
   filter: drop-shadow(0 0 3em #1bb4deec);
