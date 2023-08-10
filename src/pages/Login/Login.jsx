@@ -61,9 +61,9 @@ const Login = () => {
           </div>
             <div className="form-group">
               <div className="input-order">
-                <span className="input-image">
+                <div className="input-image">
                   <img src={mail} alt="Email" />
-                </span>
+                </div>
                 <input
                   type="email"
                   className="input"
@@ -77,9 +77,9 @@ const Login = () => {
             </div>
             <div className="form-group">
               <div className="input-order">
-                <span className="input-image">
+                <div className="input-image">
                   <img src={passw} alt="Password" />
-                </span>
+                </div>
                 <input
                   type="password"
                   className="input"

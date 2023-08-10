@@ -56,20 +56,32 @@ const Dashboard = () => {
           ) : (
             // Aquí va el contenido del dashboard para usuarios no autenticados
             <>
-              <section id='inicio-section' class='inicio-container'>
-                <div class="image-container">
-                <div className="logo-container">
-                  <img src={reactLogo} alt="React Logo" className="react-logo" />
-                </div>
-                  <div class="caption caption-1">
-                    <h2>Las grandes ideas tienen pequeños inicios.</h2>
+              <section id='inicio-section' class='inicio-container container-fluid'>
+              <div className='stars'>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+              </div>
+                <div class="transparent-container">
+                  <div className="logo-container">
+                    <img src={reactLogo} alt="React Logo" className="react-logo" />
                   </div>
-                  <div class="caption caption-2">
-                    <p>Nosotros te ayudamos a hacerlas realidad.</p>
+                    <div class="caption caption-1">
+                      <h2>Las grandes ideas tienen pequeños inicios...</h2>
+                    </div>
+                    <div class="caption caption-2">
+                      <p>Nosotros te ayudamos a hacerlas realidad.</p>
+                    </div>
+                  <div class="caption caption-3">
+                    <p>En Tesipedia nos importa que alcances el éxito profesional, por eso te brindamos apoyo con los mejores profesionales en el área.</p>
                   </div>
-                </div>
-                <div class="caption caption-3">
-                  <p>En Tesipedia nos importa que alcances el éxito profesional, por eso te brindamos apoyo con los mejores profesionales en el área.</p>
                 </div>
               </section>
               <section id='about-section'>

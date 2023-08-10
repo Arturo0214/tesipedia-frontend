@@ -67,9 +67,9 @@ const Register = () => {
           <h3 className="title d-flex justify-content-center">Regístrate</h3>
           <div className="form-group">
             <div className="input-order">
-            <span className="input-image">
+            <div className="input-image">
               <img src={usuario} alt="Username" />
-            </span>
+            </div>
             <input
               type="text"
               className="input"
@@ -83,9 +83,9 @@ const Register = () => {
           </div>
           <div className="form-group">
             <div className="input-order">
-            <span className="input-image">
+            <div className="input-image">
               <img src={mail} alt="Email" />
-            </span>
+            </div>
             <input
               type="email"
               className="input"
@@ -99,9 +99,9 @@ const Register = () => {
           </div>
           <div className="form-group">
             <div className="input-order">
-            <span className="input-image">
+            <div className="input-image">
               <img src={passw1} alt="Password" />
-            </span>
+            </div>
             <input
               type="password"
               className="input"
@@ -115,9 +115,9 @@ const Register = () => {
           </div>
           <div className="form-group">
             <div className="input-order">
-            <span className="input-image">
+            <div className="input-image">
               <img src={passw2} alt="Password" />
-            </span>
+            </div>
             <input
               type="password"
               className="input"
