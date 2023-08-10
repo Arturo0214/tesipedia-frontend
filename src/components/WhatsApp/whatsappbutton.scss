@@ -1,7 +1,7 @@
 .whatsapp-button {
     position: fixed;
     bottom: 80px; 
-    right: 52px;
+    right: 40px;
     width: 62px;
     height: 62px;
     background-color: #25d366;
@@ -32,7 +32,7 @@
 .whatsapp-message {
   position: absolute;
   bottom: 65px; 
-  left: 50%;
+  left: 42%;
   transform: translateX(-50%);
   background-color: #ffffff;
   border: 0.5px solid #000000; 
@@ -55,5 +55,5 @@
 }
 
 .whatsapp-button:hover .whatsapp-message {
-  display: block; /* Muestra el mensaje al hacer hover en el botón */
+  display: block;
 }
