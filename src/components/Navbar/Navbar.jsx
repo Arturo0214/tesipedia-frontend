@@ -81,10 +81,21 @@ const Navbar = () => {
                     to="about-section"
                     smooth={true}
                     duration={350}
-                    offset={-110}
+                    offset={-90}
                     className="nav-link"
                   >
                     ¿Quiénes somos?
+                  </ScrollLink>
+                </li>
+                <li className="nav-item">
+                  <ScrollLink
+                    to="why-section"
+                    smooth={true}
+                    duration={350}
+                    offset={-110}
+                    className="nav-link"
+                  >
+                    ¿Por qué elegirnos?
                   </ScrollLink>
                 </li>
 
@@ -99,6 +110,7 @@ const Navbar = () => {
                     ¿Cómo trabajamos?
                   </ScrollLink>
                 </li>
+
                 <li className="nav-item">
                   <ScrollLink
                     to="datos-section"

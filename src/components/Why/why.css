@@ -1,0 +1,88 @@
+.why-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+    padding: 30px;
+    width: 100%;
+    z-index: 0;
+    background: linear-gradient(to top, #007bff, #0042a8);
+  }
+.why{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  z-index: 1;
+  background-color: rgba(255,255, 255, 0.8);
+  border-radius: 30px;
+}
+.titulo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  width: 100%;
+}
+  .list img{
+    width: 50px;
+    height: 50px;
+  }
+  .list{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 550px;
+    flex-direction: row;
+    padding: 0;
+  }
+  .list p{
+    font-size: 17.5px;
+  }
+  .left{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 50%;
+    height: 100%;
+  }
+  .right{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 40%;
+    height: 100%;
+  }
+  .filas{
+    display: flex;
+    flex-direction: row;
+  }
+  .fila-col{
+    display: flex;
+    flex-direction: column;
+  }
+  .filaimg{
+    display: flex;
+    align-items: flex-start;
+    width: 12%;
+  }
+  .filaimg:hover{
+    transform: scale(1.10);
+    transition: transform 0.3s ease;
+  }
+  .filatxt{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+  }
+  .texto{
+    padding: 5px;
+    padding-top: 10px;
+    border: 1px solid rgb(181, 187, 187);
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    transform: rotateX(20deg);
+  }
