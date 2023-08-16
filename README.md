@@ -1,7 +1,7 @@
 # Tesipedia Frontend
 Tesipedia Website, specialized in guiding the completion of thesis/dissertation/research protocols to obtain a bachelor's degree in Spanish-speaking countries.
 
-App built entirely with Express.js, MongoDB (NoSQL) and Node.js
+App built entirely with React.js, Bootstrap and Node.js.
 
 
 ## License
