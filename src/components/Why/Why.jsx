@@ -8,8 +8,7 @@ import './why.css'
 
 const Why = () => {
   return (
-    <div className="why-container container-fluid">
-        <div className="why">
+        <div className="why container-fluid">
         <div className="titulo">
             <h3>
             ¿Por qué elegir Tesipedia?
@@ -118,7 +117,6 @@ const Why = () => {
         </div>
         </ul>
     </div>
-  </div>
   )
 }
 
