@@ -1,6 +1,8 @@
+
 body{
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
 .inicio-container {
   display: flex;
   width: 100%;
@@ -8,6 +10,7 @@ body{
   padding: 0;
   margin: 0;
 }
+
 .transparent-container{
   display: flex;
   align-items: center;
@@ -20,6 +23,7 @@ body{
   border-radius: 40px;
   z-index: 1;
 }
+
 .caption-left{
   display: flex;
   flex-direction: column;
@@ -28,8 +32,8 @@ body{
   width: 45%;
   padding: 20px;
   height: 100%;
-
 }
+
 .caption-right{
   display: flex;
   flex-direction: column;
@@ -39,6 +43,7 @@ body{
   padding: 20px;
   height: 100%;
 }
+
 .caption-1 {
   display: flex;
   color: white;
@@ -50,23 +55,27 @@ body{
   opacity: 0; 
   transition: opacity 0.5s ease, transform 0.5s ease; 
 }
+
 .logo-container{
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-
   height: 220px;
 }
+
 .logo-container:hover{
   transform: scale(1.05);
 }
+
 .caption h2 {
   font-size: 33px;
 }
+
 .caption p{
   font-size: 20px;
 }
+
 .caption-2 {
   display: flex;
   justify-content: center;
@@ -184,18 +193,8 @@ body{
   left: 0;
   width: 100%;
   height: 100vh;
-  background:url("https://i.postimg.cc/c1Q3njM0/bg2.jpg");
-  background-size: cover;
-  transform: scale(1);
+  background-color: black;
   z-index: 0;
-}
-@keyframes animateBg{
-  0%,100%{
-      transform: scale(1);
-  }
-  50%{
-      transform: scale(1.2);
-  }
 }
 span{
   position: absolute;
@@ -306,19 +305,44 @@ span:nth-child(9){
 }
 .dashboard-content {
   display: flex;
-  padding: 0;
+  flex-direction: column;
+  padding: 20px;
   align-items: center;
   justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 100px;
+
+}
+
+.bienvenida{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
   width: 100%;
   height: 100vh;
-  margin-top: 0;
+  color: black;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-.columns {
-  width: 100%;
-}
-.column {
+
+.texto-welcome{
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  padding: 15px;
+  font-size: 17px;
+  background-color: #8fdcf1c6;
+  border-radius: 30px;
+  width: 40%;
+  color: black;
+  transform: rotateX(10deg);
+}
+.texto-welcome ul{
+  display: flex;
+  flex-direction: column;
+  font-size: 17px;
+  height: 150px;
+  justify-content: space-between;
   align-items: center;
 }
 

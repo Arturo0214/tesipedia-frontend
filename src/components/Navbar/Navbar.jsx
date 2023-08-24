@@ -8,6 +8,7 @@ import menu from '../../assets/menu.png'
 import './navbar.scss'
 
 const Navbar = () => {
+  
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const { user } = useSelector((state) => state.auth)
@@ -73,8 +74,26 @@ const Navbar = () => {
                 </Link>
               )}
             </li>
+            <li>
+              {user && (
+                <li className="nav-item">
+                  <Link to="/cotizaciones" className="nav-link">
+                    Mis cotizaciones
+                  </Link>
+                </li>
+              )}
+            </li>
+            <li>
+              {user && (
+                <li className="nav-item">
+                  <Link to="/seguimiento" className="nav-link">
+                    Seguimiento a tu proyecto
+                  </Link>
+                </li>
+              )}
+            </li>
             {/* Condición para ocultar los botones */}
-            {isOnDashboard && (
+            {isOnDashboard && !user && (
               <>
                 <li className="nav-item">
                   <ScrollLink
@@ -110,7 +129,6 @@ const Navbar = () => {
                     ¿Cómo trabajamos?
                   </ScrollLink>
                 </li>
-
                 <li className="nav-item">
                   <ScrollLink
                     to="datos-section"
@@ -160,8 +178,6 @@ const Navbar = () => {
 }
 
 export default Navbar
-
-
 
 
 

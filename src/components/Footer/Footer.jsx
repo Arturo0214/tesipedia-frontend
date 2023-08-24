@@ -2,7 +2,7 @@ import './footer.scss'
 
 const Footer = () => {
   return (
-    <footer className={`bg-light text-center text-dark`}>
+    <footer className={`bg-light text-center text-dark container-fluid`}>
       <section className="footer">
           <div className="row">
             <div className="col-12 col-md-1 text-justify">
