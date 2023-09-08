@@ -1,11 +1,11 @@
 import Dashboard from "./pages/Dashboard/Dashboard"
-import './index.css'
 import Login from './pages/Login/Login'
 import Register from "./pages/Register/Register"
 import Seguimiento from './pages/Seguimiento/Seguimiento'
 import Cotizaciones from "./pages/Cotizaciones/Cotizaciones"
 import {Routes, Route} from "react-router-dom"
 import { ToastContainer } from 'react-toastify'
+import './index.css'
 import 'react-toastify/dist/ReactToastify.css'
 import '@fortawesome/fontawesome-free/css/all.min.css';
 

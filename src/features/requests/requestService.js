@@ -1,63 +1,65 @@
-import axios from 'axios'
+import axios from 'axios';
 
-const API_URL = 'https://spotless-sombrero-hen.cyclic.app/'
+const API_URL = 'https://spotless-sombrero-hen.cyclic.app/requests';
 
-const requestService = {
-  createRequest: async (requestData, token) => {
-    try {
-      const config = {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      };
-      const response = await axios.post(`${API_URL}requests`, requestData, config)
-      return response.data
-    } catch (error) {
-      throw error
-    }
-  },
+export const createRequest = async (requestData, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+  };
 
-  cancelRequest: async (requestId, token) => {
-    try {
-      const config = {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      };
-      const response = await axios.put(`${API_URL}requests/${requestId}/cancel`, null, config)
-      return response.data
-    } catch (error) {
-      throw error
-    }
-  },
+  try {
+    const response = await axios.post(API_URL, requestData, config);
+    return response.data;
+  } catch (error) {
+    throw error.response ? error.response.data : error.message;
+  }
+};
 
-  getRequest: async (requestId, token) => {
-    try {
-      const config = {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      };
-      const response = await axios.get(`${API_URL}requests/${requestId}`, config)
-      return response.data
-    } catch (error) {
-      throw error
-    }
-  },
+export const cancelRequest = async (requestId, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
 
-  updateRequest: async (requestId, requestData, token) => {
-    try {
-      const config = {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      };
-      const response = await axios.put(`${API_URL}requests/${requestId}`, requestData, config)
-      return response.data
-    } catch (error) {
-      throw error
-    }
-  },
+  try {
+    const response = await axios.put(`${API_URL}/${requestId}/cancel`, {}, config);
+    return response.data;
+  } catch (error) {
+    throw error.response ? error.response.data : error.message;
+  }
+};
+
+export const getRequest = async (requestId, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  try {
+    const response = await axios.get(`${API_URL}/${requestId}`, config);
+    return response.data;
+  } catch (error) {
+    throw error.response ? error.response.data : error.message;
+  }
+};
+
+export const updateRequest = async (requestId, requestData, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+  };
+
+  try {
+    const response = await axios.put(`${API_URL}/${requestId}`, requestData, config);
+    return response.data;
+  } catch (error) {
+    throw error.response ? error.response.data : error.message;
+  }
 }
-
-export default requestService
