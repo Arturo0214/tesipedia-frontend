@@ -41,43 +41,9 @@ const Dashboard = () => {
           {isAuthenticated ? (
             // Aquí va el contenido del dashboard para usuarios autenticados
             <div className="dashboard-content container-fluid">
-                <div className="contenido container-fluid">
-                  <div className="bienvenida">
-                    <div className="texto-welcome text-justify">
-                      <p className='text-center'>
-                        En <strong>Tesipedia</strong> agradecemos profundamente que nos escojas
-                        como tu primera opción. ¡No te arrepentirás!
-                      </p>
-                      <p>
-                        Tenemos varias características sobre las cuales basamos nuestros precios 
-                        en la elaboración de cada trabajo de investigación, entre ellas:
-                      </p>
-                      <ul>
-                        <li>
-                          Área de estudios.
-                        </li>
-                        <li>
-                          Requerimientos del trabajo de investigación.
-                        </li>
-                        <li>
-                          Tipo de trabajo (tesis, tesina, protocolo, etc.).
-                        </li>
-                        <li>
-                          Extensión del proyecto (cuartillas).
-                        </li>
-                      </ul>
-                      <strong>
-                      <p className='text-center'>
-                        En la parte de abajo podrás encontrar una calculadora donde podrás cotizar tu trabajo de
-                        investigación sin costo alguno:
-                      </p>
-                      </strong>
-                    </div>
-                      <div id='cotizacion-section' >
-                      <Cotizacion/>
-                      </div>
-                  </div>
-                </div>
+              <div id='cotizacion-section' >
+                <Cotizacion/>
+              </div>
             </div>
           ) : (
             // Aquí va el contenido del dashboard para usuarios no autenticados
