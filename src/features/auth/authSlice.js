@@ -8,7 +8,9 @@ export const initialState = {
   isSuccess: false,
   isAdminLoggedIn: isUserAdmin(),
   isAuthenticated: false,
-  message: ''
+  message: '',
+  users: [],
+  userbyId: null,
 }
 
 export const register = createAsyncThunk('auth/register', async (user, thunkAPI) => {
@@ -37,6 +39,51 @@ export const logout = createAsyncThunk('auth/logout', async (_, {rejectWithValue
     return rejectWithValue(message)
   }
 })
+
+export const getAllUsers = createAsyncThunk('auth/getAllUsers', async (_, thunkAPI) => {
+  try {
+    const user = thunkAPI.getState().auth.user;
+
+    if (!user || !user.isAdmin) {
+      throw new Error('Acceso no autorizado: Debes ser un administrador para obtener todos los usuarios.');
+    }
+
+    const token = user.token;
+
+    if (!token) {
+      return thunkAPI.rejectWithValue('No hay token disponible');
+    }
+
+    const users = await authService.getAllUsers(token);
+    return users;
+
+  } catch (error) {
+    const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
+    return thunkAPI.rejectWithValue(message)
+  }
+});
+
+export const getUserById = createAsyncThunk('auth/getUserById', async (_, thunkAPI) => {
+  try {
+    const user = thunkAPI.getState().auth.user;
+
+    if (!user || !user.isAdmin) {
+      throw new Error('Acceso no autorizado: Debes ser un administrador para obtener todos los usuarios.');
+    }
+
+    const token = user.token;
+
+    if (!token) {
+      return thunkAPI.rejectWithValue('No hay token disponible');
+    }
+
+    const userbyId = await authService.getUserById(token);
+    return userbyId;
+  } catch (error) {
+    const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
+    return thunkAPI.rejectWithValue(message);
+  }
+});
 
 export const authSlice = createSlice({
   name: 'auth',
@@ -91,6 +138,30 @@ export const authSlice = createSlice({
         state.user = null;
       })
       .addCase(logout.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(getAllUsers.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getAllUsers.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.users = action.payload;
+      })
+      .addCase(getAllUsers.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(getUserById.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getUserById.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.userbyId = action.payload;
+      })
+      .addCase(getUserById.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'https://spotless-sombrero-hen.cyclic.app/'
+const API_URL = 'http://localhost:8000/'
 
 let user = null
 
@@ -60,7 +60,7 @@ const logout = () => {
   deleteCookie('user')
 }
 
-// Verificar si el usuario está autenticado
+
 const isUserLoggedIn = () => {
   const userCookie = getCookie('user')
   return !!userCookie
@@ -84,12 +84,47 @@ export function setUserToCookie(user) {
   setCookie('user', JSON.stringify(user), 1);
 }
 
+const getAllUsers = async (token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  try {
+    const response = await axios.get(`${API_URL}users/getusers`, config);
+    return response.data;
+  } catch (error) {
+    console.error('Error al obtener todos los usuarios:', error);
+    throw error;
+  }
+};
+
+const getUserById = async (userId, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  try {
+    const response = await axios.get(`${API_URL}/${userId}`, config)
+    return response.data
+  } catch (error) {
+    console.error('Error al obtener el usuario', error)
+  }
+  
+}
+
+
 const authService = {
   register,
   login,
   logout,
   isUserLoggedIn,
-  isUserAdmin
+  isUserAdmin,
+  getAllUsers,
+  getUserById
 }
   
 export default authService

@@ -92,7 +92,7 @@ const Navbar = () => {
                 </li>
               )}
             </li>
-            {/* Condición para ocultar los botones */}
+            
             {isOnDashboard && !user && (
               <>
                 <li className="nav-item">

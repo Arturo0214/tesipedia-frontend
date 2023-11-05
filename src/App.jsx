@@ -3,6 +3,7 @@ import Login from './pages/Login/Login'
 import Register from "./pages/Register/Register"
 import Seguimiento from './pages/Seguimiento/Seguimiento'
 import Cotizaciones from "./pages/Cotizaciones/Cotizaciones"
+import Admin from "./pages/Admin/Admin"
 import {Routes, Route} from "react-router-dom"
 import { ToastContainer } from 'react-toastify'
 import './index.css'
@@ -21,6 +22,7 @@ function App() {
           <Route path='/register' element={<Register/>}/>
           <Route path='/seguimiento' element={<Seguimiento/>}/>
           <Route path='/cotizaciones' element={<Cotizaciones/>}/>
+          <Route path='/admin' element={<Admin/>}/>
           <Route path='*' element={<h3>Page not found 404</h3>}/> 
         </Routes>
     </div>

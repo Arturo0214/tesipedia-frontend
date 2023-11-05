@@ -7,8 +7,8 @@ import './cotizacion.css';
 
 const Cotizacion = () => {
   const dispatch = useDispatch();
-  const user = useSelector(state => state.auth.user);
-  const userRequests = useSelector(state => state.request.userRequests[user._id] || []);
+  const user = useSelector((state) => state.auth.user);
+  const userRequests = useSelector((state) => state.request.userRequests[user._id] || []);
 
   const [showOtroTipo, setShowOtroTipo] = useState(false);
   const [archivoRequerimientos, setArchivoRequerimientos] = useState(null);
@@ -58,10 +58,10 @@ const Cotizacion = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-
-    setLoading(true); 
-    setLoadingLocal(true); 
-
+  
+    setLoading(true);
+    setLoadingLocal(true);
+  
     const formData = new FormData();
     formData.append('title', event.target.tituloTrabajo.value);
     formData.append('areaEstudios', areaEstudios);
@@ -72,17 +72,20 @@ const Cotizacion = () => {
     if (showOtroTipo) {
       formData.append('otroTipoTrabajo', event.target.otroTipoTrabajo.value);
     }
-    formData.append('archivoRequerimientos', archivoRequerimientos);
     formData.append('extension', extension);
   
+    // Agregar el archivo al formulario si está presente
+    if (archivoRequerimientos) {
+      formData.append('file', archivoRequerimientos);
+    }
+    
     try {
       const response = await dispatch(createRequest(formData));
-      console.log("Respuesta del servidor:", response);
+      console.log('Respuesta del servidor:', response);
       if (response.payload && response.payload.user) {
         const calculatedCost = response.payload.costo;
-        setCosto(calculatedCost); // Set costo based on server response
-        setSubmitted(true); // Set submitted to true after successful request
-
+        setCosto(calculatedCost);
+        setSubmitted(true);
         // Ocultar el spinner local después de un tiempo
         setTimeout(() => {
           setLoading(false);
@@ -94,21 +97,20 @@ const Cotizacion = () => {
           setLoadingLocal(false);
           setResultadoVisible(true); // Mostrar el resultado después de la cotización exitosa
         }, 0);
-
       } else {
         console.error('No se encontraron los datos de la solicitud en la respuesta del servidor.');
-        setLoading(false); 
-        setLoadingLocal(false)
+        setLoading(false);
+        setLoadingLocal(false);
       }
     } catch (error) {
       console.error('Error al crear la solicitud:', error);
       setLoading(false);
-      setLoadingLocal(false)
+      setLoadingLocal(false);
     }
-  }
+  };
 
   const resetForm = () => {
-    document.getElementById("cotizacionForm").reset();
+    document.getElementById('cotizacionForm').reset();
     setArchivoRequerimientos(null);
     setAreaEstudios('');
     setNivelEstudios('');
@@ -118,83 +120,94 @@ const Cotizacion = () => {
     setIsMakingNewCotizacion(true);
   };
 
-  if (!userRequests.length && loading && !resultadoVisible){
-    return <Spinner></Spinner>
+  if (!userRequests.length && loading && !resultadoVisible) {
+    return <Spinner />;
   }
 
   return (
-    <div className='container-fluid'>
-    {!userRequests.length && !resultadoVisible && loading && (
-      <div className="spinner-container">
-        <Spinner />
-      </div>
-    )}
+    <div className="container-fluid">
+      {!userRequests.length && !resultadoVisible && loading && (
+        <div className="spinner-container">
+          <Spinner />
+        </div>
+      )}
       <div className="calculadora">
-      <div className={`cotizacion container-fluid ${isMakingNewCotizacion ? '' : 'cotizacion-submitted'}`}>
-        <form
-          id="cotizacionForm"
-          className='formulario container-fluid'
-          onSubmit={onSubmit}
-        >
-          <div className="mb-3">
-            <h4 className='text-center titulo-coti'>
-              Cotización
-            </h4>
-            <label htmlFor="tituloTrabajo" className="form-label">Título del Trabajo</label>
-            <input type="text" className="form-control" id="tituloTrabajo" required />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="areaEstudios" className="form-label">Área de Estudios</label>
-            <select className="form-select" id="areaEstudios" onChange={handleAreaEstudiosChange} required>
-              <option value="">Seleccione un área...</option>
-              <option value="Area1">Área 1: Ciencias Físico-Matemáticas y de las Ingenierías</option>
-              <option value="Area2">Área 2: Ciencias Biológicas, Químicas y de la Salud</option>
-              <option value="Area3">Área 3: Ciencias Sociales</option>
-              <option value="Area4">Área 4: Humanidades y de las Artes</option>
-            </select>
-          </div>
-          <div className="mb-3">
-            <label htmlFor="nivelEstudios" className="form-label">Nivel de Estudios</label>
-            <select className="form-select" id="nivelEstudios" onChange={handleNivelEstudiosChange} required>
-              <option value="">Seleccione un nivel...</option>
-              <option value="Licenciatura">Licenciatura</option>
-              <option value="Maestría">Maestría</option>
-              <option value="Doctorado">Doctorado</option>
-            </select>
-          </div>
-          <div className="mb-3 row">
-            <div className="col-8">
-              <label htmlFor="requerimientos" className="form-label">Requerimientos del Trabajo de Investigación</label>
-              <textarea className="form-control" id="requerimientos" rows={3} required />
+        <div className={`cotizacion container-fluid ${isMakingNewCotizacion ? '' : 'cotizacion-submitted'}`}>
+          <form id="cotizacionForm" className="formulario container-fluid" onSubmit={onSubmit}  encType="multipart/form-data">
+            <div className="mb-3">
+              <h4 className="text-center titulo-coti">Cotización</h4>
+              <label htmlFor="tituloTrabajo" className="form-label">
+                Título del Trabajo
+              </label>
+              <input type="text" className="form-control" id="tituloTrabajo" required />
             </div>
-            <div className="col-4 archivo">
-            <input type="file" className="form-control" id="archivoRequerimientos" onChange={handleArchivoChange} />
+            <div className="mb-3">
+              <label htmlFor="areaEstudios" className="form-label">
+                Área de Estudios
+              </label>
+              <select className="form-select" id="areaEstudios" onChange={handleAreaEstudiosChange} required>
+                <option value="">Seleccione un área...</option>
+                <option value="Area1">Área 1: Ciencias Físico-Matemáticas y de las Ingenierías</option>
+                <option value="Area2">Área 2: Ciencias Biológicas, Químicas y de la Salud</option>
+                <option value="Area3">Área 3: Ciencias Sociales</option>
+                <option value="Area4">Área 4: Humanidades y de las Artes</option>
+              </select>
             </div>
-          </div>
-          <div className="mb-3">
-            <label htmlFor="tipoTrabajo" className="form-label">Tipo de Trabajo</label>
-            <select className="form-select" id="tipoTrabajo" onChange={handleTipoTrabajoChange} required>
-              <option value="">Seleccione un tipo...</option>
-              <option value="Tesis">Tesis</option>
-              <option value="Tesina">Tesina</option>
-              <option value="Protocolo">Protocolo de Investigación</option>
-              <option value="Otro">Otro</option>
-            </select>
-            {showOtroTipo && (
-              <input type="text" className="form-control mt-2" id="otroTipoTrabajo" placeholder="Especifique el trabajo" />
-            )}
-          </div>
-          <div className="mb-3">
-            <label htmlFor="extension" className="form-label">Extensión del Proyecto (cuartillas)</label>
-            <input type="number" className="form-control" id="extension" onChange={handleExtensionChange} required />
-          </div>
-          <div className="text-center">
-              <button type="submit" className="btn btn-primary">Enviar</button>
-          </div>
-        </form>
-      </div>
-     {showResultado && (
-          <div className={`resultado container-fluid resultado-visible`}>
+            <div className="mb-3">
+              <label htmlFor="nivelEstudios" className="form-label">
+                Nivel de Estudios
+              </label>
+              <select className="form-select" id="nivelEstudios" onChange={handleNivelEstudiosChange} required>
+                <option value="">Seleccione un nivel...</option>
+                <option value="Licenciatura">Licenciatura</option>
+                <option value="Maestría">Maestría</option>
+                <option value="Doctorado">Doctorado</option>
+              </select>
+            </div>
+            <div className="mb-3 row">
+              <div className="col-8">
+                <label htmlFor="requerimientos" className="form-label">
+                  Requerimientos del Trabajo de Investigación
+                </label>
+                <textarea className="form-control" id="requerimientos" rows={3} />
+              </div>
+              <div className="col-4 archivo">
+                <input type="file" className="form-control" id="archivoRequerimientos" name="file" onChange={handleArchivoChange} />
+                {archivoRequerimientos && (
+                  <p className='text-center'>{archivoRequerimientos.name}</p>
+                )}
+              </div>
+            </div>
+            <div className="mb-3">
+              <label htmlFor="tipoTrabajo" className="form-label">
+                Tipo de Trabajo
+              </label>
+              <select className="form-select" id="tipoTrabajo" onChange={handleTipoTrabajoChange} required>
+                <option value="">Seleccione un tipo...</option>
+                <option value="Tesis">Tesis</option>
+                <option value="Tesina">Tesina</option>
+                <option value="Protocolo">Protocolo de Investigación</option>
+                <option value="Otro">Otro</option>
+              </select>
+              {showOtroTipo && (
+                <input type="text" className="form-control mt-2" id="otroTipoTrabajo" placeholder="Especifique el trabajo" />
+              )}
+            </div>
+            <div className="mb-3">
+              <label htmlFor="extension" className="form-label">
+                Extensión del Proyecto (cuartillas)
+              </label>
+              <input type="number" className="form-control" id="extension" onChange={handleExtensionChange} required />
+            </div>
+            <div className="text-center">
+              <button type="submit" className="btn btn-primary">
+                Enviar
+              </button>
+            </div>
+          </form>
+        </div>
+        {showResultado && (
+          <div className={`resultado-visible container-fluid`}>
             {loadingLocal ? (
               <div className="spinner-container">
                 <Spinner />
@@ -206,17 +219,19 @@ const Cotizacion = () => {
                   <h3 className="text-center">
                     {costo ? costo.toLocaleString('es-MX', { style: 'currency', currency: 'MXN', minimumFractionDigits: 0, maximumFractionDigits: 0 }) : '0 MXN'}
                   </h3>
-                  <p className='text-center nota'>Nota: El costo puede variar dependiendo de los requerimientos del proyecto.</p>
+                  <p className="text-center nota">Nota: El costo puede variar dependiendo de los requerimientos del proyecto.</p>
                   <div className="botones col-12">
                     <div className="contacto">
                       <h5>¡Vamos allá!</h5>
-                      <Link to='/cotizaciones'>
-                          <button className='btn btn-info'>Cotizaciones</button>
+                      <Link to="/cotizaciones">
+                        <button className="btn btn-info">Cotizaciones</button>
                       </Link>
                     </div>
                     <div className="nueva-cotizacion">
                       <h5>Realizar otra cotización</h5>
-                      <button className='btn btn-primary' onClick={resetForm}>Nueva cotizacion</button>
+                      <button className="btn btn-primary" onClick={resetForm}>
+                        Nueva cotizacion
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -226,6 +241,6 @@ const Cotizacion = () => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 export default Cotizacion;

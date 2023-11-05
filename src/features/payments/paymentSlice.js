@@ -134,18 +134,6 @@ const paymentSlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       })
-      .addCase(getStripeSecretKeyAsync.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(getStripeSecretKeyAsync.fulfilled, (state, action) => {
-        state.loading = false;
-        state.secretKey = action.payload;
-      })
-      .addCase(getStripeSecretKeyAsync.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.error.message;
-      });
   },
 });
 

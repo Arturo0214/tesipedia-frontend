@@ -61,14 +61,17 @@ const customStyles = {
 
 Modal.setAppElement('#root');
 
+
 const PaymentModal = ({ isOpen, closeModal, cotizacion }) => {
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('');
-
+  console.log(cotizacion)
   // Comprobamos si cotizacion es nulo antes de acceder a sus propiedades
   const title = cotizacion?.title || 'Título no disponible';
   const nivelEstudios = cotizacion?.nivelEstudios || 'Nivel de estudios no disponible';
   const areaEstudios = cotizacion?.areaEstudios || 'Área de estudios no disponible';
-  const requerimientos = cotizacion?.requerimientos || 'Requerimientos no disponibles';
+
+  const requerimientosText = cotizacion?.requerimientos.file.originalname || 'Requerimientos de texto no disponibles';
+
   const extension = cotizacion?.extension || 'Extensión no disponible';
   const costo = cotizacion?.costo || 0; // Cambiamos esto a un valor numérico
 
@@ -134,7 +137,7 @@ const PaymentModal = ({ isOpen, closeModal, cotizacion }) => {
             <p><strong>Título del trabajo:</strong> {title}</p>
             <p><strong>Nivel de Estudios:</strong> {nivelEstudios}</p>
             <p><strong>Área de Estudios:</strong> {areaEstudios}</p>
-            <p><strong>Requerimientos:</strong> {requerimientos}</p>
+            <p><strong>Requerimientos de texto:</strong> {requerimientosText}</p>
             <p><strong>Extensión:</strong> {extension} cuartillas</p>
             <h5>Costo de la cotización: {costo.toLocaleString('es-MX', { style: 'currency', currency: 'MXN', minimumFractionDigits: 0, maximumFractionDigits: 0 })} MXN</h5>
           </div>

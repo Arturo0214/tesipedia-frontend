@@ -41,3 +41,28 @@
 .StripeElement--invalid::placeholder {
   color: #ffc7c7;
 }
+
+.stripe-card-element {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stripe-card-element label {
+  font-weight: bold;
+}
+
+.stripe-card-element .CardField {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.stripe-card-element .CardField-number {
+  display: flex;
+  gap: 10px;
+}
+
+.stripe-card-element .CardField-number input {
+  flex: 1;
+}

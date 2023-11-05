@@ -1,0 +1,83 @@
+.admin{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  width: 100%;
+  max-width: 1500px;
+  height: 92vh;
+  border: 1px solid rgb(106, 103, 103);
+  border-radius: 30px;
+}
+
+.admin-left {
+  flex: 23%;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  background-color: black; 
+  color: white;
+}
+
+.admin-right {
+  flex: 77%;
+  height: 100%;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  background-color: white;
+  color: black;
+}
+
+.admin-user {
+  display: flex;
+  height: 16%;
+  padding: 20px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-user h5 {
+  margin: 0;
+}
+
+.admin-section {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  height: 10%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+.admin-section.selected {
+  background-color: rgba(255, 255, 255, 0.43);
+  color: white;
+}
+/* Estilo de fondo y color al pasar el mouse */
+.admin-section:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
+
+.admin-section h3 {
+  margin: 0;
+}
+
+.admin-logout {
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+}
+
+.admin-logout button {
+  color: white;
+  transition: opacity 0.3s ease; /* Transición para el efecto hover */
+}
+
+.admin-logout button:hover {
+  opacity: 0.8; /* Cambia la opacidad al pasar el cursor por encima */
+}

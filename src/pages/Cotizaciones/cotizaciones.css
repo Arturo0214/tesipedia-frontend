@@ -37,6 +37,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  margin-left: 10px;
   width: 200px;
   gap: 5px;
 }
@@ -45,6 +46,7 @@
   height: 150px;
   border: 1px solid #ccc;
   border-radius: 20px;
+  
 }
 .tesis-texto{
   display: flex;
@@ -61,4 +63,22 @@
   right: 0; /* Desde el lado derecho de la tarjeta */
   transform: translate(0%, 0%); /* Alinea el botón en la esquina */
   z-index: 1; /* Asegura que esté encima del contenido de la tarjeta */
+}
+.close-button {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 1px;
+  right: 1px;
+  background-color: white;
+  border: 0.5px solid black;
+  width: 27px;
+  height: 27px;
+  border-radius: 50px;
+  padding: 5px;
+  cursor: pointer;
+}
+.close-button:hover {
+  transition: background-color 0.3s;
 }

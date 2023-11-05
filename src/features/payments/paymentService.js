@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:8000/payments';
+const BASE_URL = 'https://spotless-sombrero-hen.cyclic.app/payments';
 
 // Función para crear un nuevo pago
 export const createPayment = async (paymentData, token) => {
