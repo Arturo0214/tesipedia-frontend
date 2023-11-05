@@ -1,0 +1,98 @@
+.cotizaciones-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.cotizaciones-top {
+  display: flex;
+  flex: 17%; 
+  background-color: #f2f2f2; 
+  border-top-right-radius: 30px;
+  padding: 10px; 
+}
+
+.cotizaciones-bottom {
+  flex: 83%;
+  background: linear-gradient(to top, #0099cc, #146388);
+  overflow-y: auto;
+  border-bottom-right-radius: 30px;
+  padding: 20px;
+}
+.col{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.col-2{
+  display: flex;
+  height: 100%;
+}
+
+.contenido{
+  display: flex;
+  height: 100%;
+}
+.filtros{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 13%;
+  margin-top: 10px;
+  color: rgb(252, 252, 252);
+}
+.cotizations{
+  color: white;
+}
+.requests{
+  width: 87%;
+}
+.search{
+  display: flex;
+  height: 9%;
+}
+.cotizacioness{
+  height: 91%;
+  margin-top: 10px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+}
+/* cotizaciones.css */
+.filter-selects {
+  gap: 10px;
+}
+
+.filter-selects select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: #f8f8f8;
+  margin-bottom: 15px;
+}
+
+.filter-selects select:hover {
+  background-color: #e8e8e8;
+}
+
+.filter-selects select:focus {
+  outline: none;
+  box-shadow: 0 0 5px #007bff;
+}
+
+.filtros h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.filtros button{
+  width: 75%;
+  margin-bottom: 15px;
+  padding: 4px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f8f8f8;
+  color: black;
+}

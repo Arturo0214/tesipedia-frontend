@@ -1,0 +1,75 @@
+.usuarios-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Opcional: asegura que el contenedor ocupe toda la altura disponible */
+}
+
+.usuarios-top {
+  flex: 15%; /* Tamaño de la primera fila (35%) */
+  background-color: #f2f2f2; /* Color de fondo opcional */
+  border-top-right-radius: 30px;
+  padding: 20px; /* Espaciado opcional */
+}
+
+.usuarios-bottom {
+  flex: 85%; /* Tamaño de la segunda fila (65%) */
+  background-color: #ffffff; /* Color de fondo opcional */
+  overflow-y: auto;
+  border-bottom-right-radius: 30px;
+  padding: 20px; /* Espaciado opcional */
+}
+.list-container {
+  max-height: 100%;
+  overflow-y: auto;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+}
+
+.list-group-item {
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+
+.usuario-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+}
+
+.usuario-details {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.usuario-name {
+  font-weight: bold;
+}
+
+.usuario-email {
+  color: #007bff; /* Color del enlace */
+  text-decoration: underline;
+}
+
+.usuario-password {
+  color: #ff5722; /* Color de contraseña */
+}
+
+.usuario-id{
+  color: black;
+}
+
+.form-control:focus {
+  border-color: #ced4da; /* Cambia el color del borde en el enfoque (focus) */
+  box-shadow: none; /* Quita la sombra en el enfoque (focus) */
+}
+.input-group input{
+  border-radius: 10px;
+}
+.new-users {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

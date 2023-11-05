@@ -1,0 +1,68 @@
+/* Estilos para el contenedor del CardElement */
+#cardElement {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+}
+
+/* Estilos para los campos individuales dentro del CardElement */
+.StripeElement {
+  height: 40px;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  transition: box-shadow 150ms ease;
+}
+
+/* Estilos cuando el campo tiene el foco */
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para campos inválidos */
+.StripeElement--invalid {
+  border-color: #ff3860;
+}
+
+/* Estilos para el texto dentro del campo */
+.StripeElement::placeholder {
+  color: #aab7c4;
+}
+
+/* Estilos para el texto dentro del campo cuando está enfocado */
+.StripeElement--focus::placeholder {
+  color: #8898aa;
+}
+
+/* Estilos para el texto dentro del campo cuando es inválido */
+.StripeElement--invalid::placeholder {
+  color: #ffc7c7;
+}
+
+.stripe-card-element {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stripe-card-element label {
+  font-weight: bold;
+}
+
+.stripe-card-element .CardField {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.stripe-card-element .CardField-number {
+  display: flex;
+  gap: 10px;
+}
+
+.stripe-card-element .CardField-number input {
+  flex: 1;
+}
