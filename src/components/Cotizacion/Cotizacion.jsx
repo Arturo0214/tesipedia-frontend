@@ -133,7 +133,7 @@ const Cotizacion = () => {
       )}
       <div className="calculadora">
         <div className={`cotizacion container-fluid ${isMakingNewCotizacion ? '' : 'cotizacion-submitted'}`}>
-          <form id="cotizacionForm" className="formulario container-fluid" onSubmit={onSubmit}  encType="multipart/form-data">
+          <form id="cotizacionForm" className="formulario container-fluid" onSubmit={onSubmit} encType="multipart/form-data">
             <div className="mb-3">
               <h4 className="text-center titulo-coti">Cotización</h4>
               <label htmlFor="tituloTrabajo" className="form-label">

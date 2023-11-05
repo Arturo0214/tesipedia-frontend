@@ -1,6 +1,7 @@
 .cotizacion {
   display: flex;
-  width: 580px;
+  padding: 10px;
+  width: 550px;
   height: 650px;
   font-size: 16.5px;
   border: 1px solid #ccc;
@@ -17,22 +18,20 @@
 }
 
 .cotizacion label {
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .cotizacion input {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
-  height: 40px;
   width: 100%;
-  font-size: 14.2px;
+  font-size: 13px;
 }
 
 .cotizacion select {
   height: 40px;
-  font-size: 15px;
+  font-size: small;
 }
 
 .titulo-coti {

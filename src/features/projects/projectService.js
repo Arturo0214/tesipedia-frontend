@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://spotless-sombrero-hen.cyclic.app/projects';
+const API_URL = 'http://localhost:8000/projects';
 
 export const createProject = async (projectData, token) => {
   const config = {

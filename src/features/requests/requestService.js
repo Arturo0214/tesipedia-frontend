@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://spotless-sombrero-hen.cyclic.app/requests';
+const API_URL = 'http://localhost:8000/requests';
 
 export const createRequest = async (requestData, token) => {
   const config = {
